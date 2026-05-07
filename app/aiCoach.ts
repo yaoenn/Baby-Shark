@@ -1,5 +1,5 @@
 export const getAIAdvice = async (prompt: string) => {
-  // simulate delay like real AI
+  // temperory function need to rewrite der
   await new Promise(resolve => setTimeout(resolve, 1500));
 
   return `

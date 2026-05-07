@@ -45,8 +45,33 @@ export default function Home() {
             </TouchableOpacity>
            
             {/* AI COACH BUTTON */}
-            <TouchableOpacity onPress={() => router.push('/aiCoach')}>
-                <Text>Open AI Coach</Text>
+            <TouchableOpacity
+                onPress={() => router.push('/aiCoach')}
+                style={{
+                    backgroundColor: '#3b82f6',
+                    padding: 14,
+                    borderRadius: 10,
+                    marginTop: 10,
+                    alignItems: 'center',
+                }}
+            >
+                <Text style={{ color: 'white', fontWeight: 'bold' }}>
+                    Open AI Coach 🤖
+                    
+                </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+             onPress={() => router.push('/reward')}
+             style={{
+             backgroundColor: '#3b82f6',
+             padding: 12,
+             borderRadius: 10,
+             marginTop: 15,
+             alignItems: 'center',
+             }}
+>
+             <Text style={{ color: 'white' }}> View Rewards🎁</Text>
             </TouchableOpacity>
         </View>
     );
