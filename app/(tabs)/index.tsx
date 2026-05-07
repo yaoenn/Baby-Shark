@@ -21,7 +21,7 @@ export default function Index() {
       setMode('login'); // move to login page
       return;
     }
-
+ 
     // LOGIN
     const success = login({ username, password });
 

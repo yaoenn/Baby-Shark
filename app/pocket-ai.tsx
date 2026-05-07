@@ -1,9 +1,14 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { useApp } from './AppContext';
+import { AlertTester } from './AlertTester';
+import { useSpendingAlert } from './useSpendingAlert';
 
 export default function AiPocket() {
   const { balance } = useApp();
+  const { trackSpending, getCurrentSpent, resetSpending } = useSpendingAlert();
+  const foodDailyLimit = 33.33;
+  const foodPocketId = 'food_001';
 
   const pockets = [
     { name: '🍛 Food / Meals', percent: 0.3 },
@@ -14,8 +19,10 @@ export default function AiPocket() {
   ];
 
   return (
+
     <View style={styles.container}>
       <Text style={styles.title}>🤖 AI Pocket Budget</Text>
+      <AlertTester />
 
       {pockets.map((p, i) => {
         const amount = balance * p.percent;
@@ -60,3 +67,6 @@ const styles = StyleSheet.create({
   amount: { color: '#22c55e', fontSize: 18, marginTop: 5 },
   sub: { color: '#94a3b8', marginTop: 3 },
 });
+
+
+

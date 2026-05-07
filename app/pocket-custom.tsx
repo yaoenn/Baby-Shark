@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { AlertTester } from './AlertTester';
 
 export default function CustomPocket() {
     const [category, setCategory] = useState('');
@@ -26,6 +27,7 @@ export default function CustomPocket() {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>⚙️ Custom Pocket</Text>
+            <AlertTester />
 
             {/* CATEGORY INPUT */}
             <Text style={styles.label}>Category Name</Text>
