@@ -1,7 +1,8 @@
-import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useRouter } from 'expo-router';
+import React from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useApp } from './AppContext';
+
 
 export default function Home() {
     const router = useRouter();
@@ -35,12 +36,17 @@ export default function Home() {
                 </TouchableOpacity>
             </View>
 
-            {/* POCKET BUTTON */}
+            {/* POCKET BUTON */}
             <TouchableOpacity
                 style={styles.pocketBtn}
                 onPress={() => router.push('/pocket')}
             >
                 <Text style={{ color: 'white' }}>Pocket 🪙</Text>
+            </TouchableOpacity>
+           
+            {/* AI COACH BUTTON */}
+            <TouchableOpacity onPress={() => router.push('/aiCoach')}>
+                <Text>Open AI Coach</Text>
             </TouchableOpacity>
         </View>
     );

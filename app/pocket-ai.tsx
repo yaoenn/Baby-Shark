@@ -1,8 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import { useApp } from './AppContext';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { AlertTester } from './AlertTester';
+import { useApp } from './AppContext';
+import { addSpending } from './spendingService';
 import { useSpendingAlert } from './useSpendingAlert';
+
 
 export default function AiPocket() {
   const { balance } = useApp();
@@ -34,6 +36,26 @@ export default function AiPocket() {
             <Text style={styles.sub}>
               Daily Limit: RM {(amount / 30).toFixed(2)}
             </Text>
+
+            <TouchableOpacity
+      onPress={() =>
+      addSpending({
+      pocketId: 'food_001',
+      categoryName: 'Food',
+      amount: 10,
+      dailyLimit: foodDailyLimit,
+      trackSpending,
+      })
+    }
+  style={{
+    backgroundColor: '#22c55e',
+    padding: 10,
+    borderRadius: 8,
+    marginTop: 10,
+  }}
+>
+  <Text style={{ color: 'white' }}>+ Spend RM10</Text>
+</TouchableOpacity>
           </View>
         );
       })}
