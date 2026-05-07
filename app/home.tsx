@@ -11,15 +11,14 @@ export default function Home() {
 
     return (
         <View style={styles.container}>
-        
-             {/* STREAK DISPLAY - ADDED (Mock Data) */}
+
+            {/* STREAK DISPLAY - ADDED (Mock Data) */}
             <View style={styles.streakContainer}>
-            <Text style={styles.streakIcon}>🔥</Text>
-            <Text style={styles.streakText}>{streak} Days Streak!</Text>
+                <Text style={styles.streakIcon}>🔥</Text>
+                <Text style={styles.streakText}>{streak} Days Streak!</Text>
             </View>
-            {/* 👇 FIXED WELCOME TEXT */}
             <Text style={styles.title}>
-                👋 WELCOME {user?.username ?? 'USER'}
+                👋 WELCOME
             </Text>
 
             {/* BALANCE CARD */}
@@ -50,7 +49,7 @@ export default function Home() {
             >
                 <Text style={{ color: 'white' }}>Pocket 🪙</Text>
             </TouchableOpacity>
-           
+
             {/* AI COACH BUTTON */}
             <TouchableOpacity
                 onPress={() => router.push('/aicoach')}
@@ -64,21 +63,21 @@ export default function Home() {
             >
                 <Text style={{ color: 'white', fontWeight: 'bold' }}>
                     Open AI Coach 🤖
-                    
+
                 </Text>
             </TouchableOpacity>
 
             <TouchableOpacity
-             onPress={() => router.push('/reward')}
-             style={{
-             backgroundColor: '#3b82f6',
-             padding: 12,
-             borderRadius: 10,
-             marginTop: 15,
-             alignItems: 'center',
-             }}
->
-             <Text style={{ color: 'white' }}> View Rewards🎁</Text>
+                onPress={() => router.push('/reward')}
+                style={{
+                    backgroundColor: '#3b82f6',
+                    padding: 12,
+                    borderRadius: 10,
+                    marginTop: 15,
+                    alignItems: 'center',
+                }}
+            >
+                <Text style={{ color: 'white' }}> View Rewards🎁</Text>
             </TouchableOpacity>
         </View>
     );
@@ -140,7 +139,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 
-  streakContainer: {
+    streakContainer: {
         backgroundColor: '#f59e0b',
         padding: 12,
         borderRadius: 12,
@@ -163,5 +162,5 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textDecorationLine: 'underline',
         textDecorationColor: '#ffffff',
-    },   
+    },
 });

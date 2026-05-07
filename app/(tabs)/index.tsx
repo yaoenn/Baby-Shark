@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import { useApp } from '../AppContext';
 
@@ -21,7 +21,7 @@ export default function Index() {
       setMode('login'); // move to login page
       return;
     }
- 
+
     // LOGIN
     const success = login({ username, password });
 
@@ -35,6 +35,11 @@ export default function Index() {
 
   return (
     <View style={styles.container}>
+      <Image
+        source={require('../../assets/images/gxbank.png')}
+        style={styles.logo}
+      />
+
       <Text style={styles.title}>
         {mode === 'signup' ? 'Sign Up' : 'Login'}
       </Text>
@@ -78,10 +83,19 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#0f172a',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     padding: 20,
-    paddingTop: 80,
+    paddingTop: 0,
   },
+
+  logo: {
+    width: 450,   // change from 140 to 200
+    height: 450,  // change from 140 to 200
+    alignSelf: 'center',
+    marginBottom: -50,
+    resizeMode: 'contain',
+  },
+
   title: {
     color: 'white',
     fontSize: 28,
