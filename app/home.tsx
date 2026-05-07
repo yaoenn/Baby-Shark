@@ -1,5 +1,5 @@
 import { useRouter } from 'expo-router';
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { useApp } from './AppContext';
 
@@ -7,9 +7,16 @@ import { useApp } from './AppContext';
 export default function Home() {
     const router = useRouter();
     const { user, balance } = useApp();
+    const [streak] = useState(15);
 
     return (
         <View style={styles.container}>
+        
+             {/* STREAK DISPLAY - ADDED (Mock Data) */}
+            <View style={styles.streakContainer}>
+            <Text style={styles.streakIcon}>🔥</Text>
+            <Text style={styles.streakText}>{streak} Days Streak!</Text>
+            </View>
             {/* 👇 FIXED WELCOME TEXT */}
             <Text style={styles.title}>
                 👋 WELCOME {user?.username ?? 'USER'}
@@ -46,7 +53,7 @@ export default function Home() {
            
             {/* AI COACH BUTTON */}
             <TouchableOpacity
-                onPress={() => router.push('/aiCoach')}
+                onPress={() => router.push('/aicoach')}
                 style={{
                     backgroundColor: '#3b82f6',
                     padding: 14,
@@ -132,4 +139,29 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         alignItems: 'center',
     },
+
+  streakContainer: {
+        backgroundColor: '#f59e0b',
+        padding: 12,
+        borderRadius: 12,
+        marginBottom: 20,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: 10,
+        textDecorationLine: 'underline',
+        textDecorationColor: '#ffffff',
+    },
+    streakIcon: {
+        fontSize: 24,
+        textDecorationLine: 'underline',
+        textDecorationColor: '#ffffff',
+    },
+    streakText: {
+        color: 'white',
+        fontSize: 16,
+        fontWeight: 'bold',
+        textDecorationLine: 'underline',
+        textDecorationColor: '#ffffff',
+    },   
 });
